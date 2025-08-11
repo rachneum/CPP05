@@ -1,0 +1,73 @@
+
+If grade too low or grade too high I must !throw! an exception
+-> Bureaucrat::GradeTooHighExecption || Bureaucrat::GradeTooLowExecption??
+
+If the grade goes out of range, both functions (increment and decrement grade) must !throw!
+the same exceptions as the constructor.????
+
+The thrown exceptions must be catchable using try and catch blocks????
+_____________________
+
+!!Remember, since grade 1 is the highest and 150 the lowest,
+incrementing a grade 3 should result in a grade 2 for the bureaucrat!!
+_____________________
+
+try, catch, throw: font partie du mécanisme de gestion d’exceptions.
+But: étant de gérer proprement les erreurs ou situations inattendues sans faire planter le programme.
+
+try->	Indique qu'on va surveiller un bloc de code pour détecter des problèmes.
+		Si tout se passe bien, le code continue normalement.
+		Si une erreur est signalée par throw, on saute directement au bloc catch.
+
+throw->	Sert à lancer une exception. (cad: Interrompre immédiatement l’exécution normale du code et sauter jusqu’au bloc catch approprié, en emportant avec soi un objet qui décrit le problème.)
+		On peut lancer n'importe quel type (nbr, chaîne, objet, classe personnalisée…).
+		Concrètment, le programme va créer un objet d'exception, quitte le bloc courant
+
+catch->	Sert à intercepter l’exception lancée dans le bloc try.
+		On peut avoir plusieurs catch pour traiter différents types d’erreurs.
+		ex:
+			catch (const char *message)
+			{
+    			std::cout << "Erreur : " << message << std::endl;
+			}
+
+CONCLUSION:
+	try → 	zone surveillée.
+	throw → signalement d’un problème.
+	catch → réaction au problème.
+
+	C’est mieux que de vérifier à chaque ligne si tout va bien.
+	Les exceptions permettent de séparer la logique normale et la gestion des erreurs.
+ex:
+#include <iostream>
+#include <stdexcept>
+
+void division(int a, int b)
+{
+    if (b == 0)
+        throw std::runtime_error("Division par zéro !");
+    std::cout << "Résultat : " << (a / b) << std::endl;
+}
+
+int main()
+{
+    try
+	{
+        division(10, 0); // va lancer l'exception
+    }
+    catch (const std::runtime_error& e)
+	{
+        std::cout << "Erreur capturée : " << e.what() << std::endl;
+    }
+}
+_____________________
+
+what()→
+C’est la méthode qui permet de personnaliser le message d’erreur retourné par une exception.
+Par défaut, std::exception::what() retourne un message générique, mais en redéfinissant what() dans mes classes d’exception,
+je peux fournir un message précis adapté à chaque type d’erreur.
+
+Ma fonction:	const char* what() const throw();
+-> explications: Pourquoi throw() ici est important?: Il permet ici de promettre que cette fonction ne va pas lancer d'exception.
+													  Si what() lançait une exception alors qu’on est déjà en train de gérer une autre exception,
+													  le programme appelle std::terminate() et se termine brutalement.
