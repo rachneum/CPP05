@@ -82,4 +82,5 @@ Si le grade qu'on lui donne est incorrecte alors throw exception -> Bureaucrat::
 Avoir des getter pour mes deux attributs (_name et _grade) -> getName()
 														   -> getGrade().
 Implementer deux fonctions membres afin d'incrementer ou decrementer le grade du Bureaucrat.
-												
+Si lorsque j'incremente ou decremente mon grade sors du range accepte alors throw les memes exceptions que pour mon constructeur!
+_____________________
