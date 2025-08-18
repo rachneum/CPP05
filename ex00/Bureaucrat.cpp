@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : _name("Default"), _grade(150)
+Bureaucrat::Bureaucrat() : _name("Default"), _grade(150)//J'ai mis une valeur pour mon grade mais j'aurais pu mettre n'importe quel autre grade dans ma range.
 {
     std::cout << "Bureaucrat default constructor called." << std::endl;
 }
