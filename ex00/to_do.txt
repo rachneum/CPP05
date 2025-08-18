@@ -1,12 +1,14 @@
+Quoi faire?
 
-If grade too low or grade too high I must !throw! an exception
--> Bureaucrat::GradeTooHighExecption || Bureaucrat::GradeTooLowExecption??
+Bureaucrat a un nom const (recois sa valeur lors de sa construction).
+Les grades vont de 1 a 150 (1 = le plus haut poss et 150 = le plus bas poss).
+Si le grade qu'on lui donne est incorrecte alors throw exception -> Bureaucrat::GradeTooHighException
+																 ->Bureaucrat::GradeTooLowException.
+Avoir des getter pour mes deux attributs (_name et _grade) -> getName()
+														   -> getGrade().
+Implementer deux fonctions membres afin d'incrementer ou decrementer le grade du Bureaucrat.
+Si lorsque j'incremente ou decremente mon grade sors du range accepte alors throw les memes exceptions que pour mon constructeur!
 
-If the grade goes out of range, both functions (increment and decrement grade) must !throw!
-the same exceptions as the constructor.????
-
-The thrown exceptions must be catchable using try and catch blocks????
-_____________________
 
 !!Remember, since grade 1 is the highest and 150 the lowest,
 incrementing a grade 3 should result in a grade 2 for the bureaucrat!!
@@ -72,15 +74,4 @@ Ma fonction:	const char* what() const throw();
 													  Si what() lançait une exception alors qu’on est déjà en train de gérer une autre exception,
 													  le programme appelle std::terminate() et se termine brutalement.
 
-_____________________
-Quoi faire?
-
-Bureaucrat a un nom const (recois sa valeur lors de sa construction).
-Les grades vont de 1 a 150 (1 = le plus haut poss et 150 = le plus bas poss).
-Si le grade qu'on lui donne est incorrecte alors throw exception -> Bureaucrat::GradeTooHighException
-																 ->Bureaucrat::GradeTooLowException.
-Avoir des getter pour mes deux attributs (_name et _grade) -> getName()
-														   -> getGrade().
-Implementer deux fonctions membres afin d'incrementer ou decrementer le grade du Bureaucrat.
-Si lorsque j'incremente ou decremente mon grade sors du range accepte alors throw les memes exceptions que pour mon constructeur!
 _____________________
