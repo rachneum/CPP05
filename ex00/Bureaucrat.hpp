@@ -8,7 +8,7 @@
 class	Bureaucrat
 {
 	private:
-		const std::string	_name;
+		const std::string	_name;//_name ici est const càd une fois qu'il a recu une valeur lors de la contruction de l'objet, elle ne pourra plus être modifiée.
 		int					_grade;//(Ranges from 1(highest garde poss) to 150(lowest grade poss)).
 
 	public:
@@ -18,8 +18,8 @@ class	Bureaucrat
         Bureaucrat& operator=(const Bureaucrat& other);
 		~Bureaucrat();
 
-		std::string	getName() const;
-		int			getGrade() const;
+		std::string	getName() const;//const pour mes getters afin de m'assurer d'uniquement lire les attributs et jamais les modifier.
+		int			getGrade() const;//const d'autant plus car mon attribut _name est const.
 
 		void		incrementGrade();
 		void		decrementGrade();

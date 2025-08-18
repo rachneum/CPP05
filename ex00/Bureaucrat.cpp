@@ -1,22 +1,30 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat() : _name("Default"), 
 {
-    std::cout << "Default constructor called." << std::endl;
+    std::cout << "Bureaucrat default constructor called." << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string& name, int grade)
+Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name), _grade(grade)
 {
-    std::cout << "Other bureaucrat constructor called." << std::endl;
+    std::cout << "Bureaucrat constructor called." << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other)
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade)
 {
-    
+    std::cout << "Bureaucrat copy constructor called." << std::endl;
+}
+
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
+{
+    if (this != &other)
+        _grade = other._grade;
+    std::cout << "Bureaucrat assignment operator called." << std::endl;
+    return (*this);
 }
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "Default destructor called." << std::endl;
+    std::cout << "Bureaucrat default destructor called." << std::endl;
 }
 

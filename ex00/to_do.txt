@@ -71,3 +71,15 @@ Ma fonction:	const char* what() const throw();
 -> explications: Pourquoi throw() ici est important?: Il permet ici de promettre que cette fonction ne va pas lancer d'exception.
 													  Si what() lançait une exception alors qu’on est déjà en train de gérer une autre exception,
 													  le programme appelle std::terminate() et se termine brutalement.
+
+_____________________
+Quoi faire?
+
+Bureaucrat a un nom const (recois sa valeur lors de sa construction).
+Les grades vont de 1 a 150 (1 = le plus haut poss et 150 = le plus bas poss).
+Si le grade qu'on lui donne est incorrecte alors throw exception -> Bureaucrat::GradeTooHighException
+																 ->Bureaucrat::GradeTooLowException.
+Avoir des getter pour mes deux attributs (_name et _grade) -> getName()
+														   -> getGrade().
+Implementer deux fonctions membres afin d'incrementer ou decrementer le grade du Bureaucrat.
+												
