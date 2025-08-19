@@ -1,0 +1,16 @@
+Quoi faire?
+
+->class Form
+			-> un _name constant
+			-> un bool indiquant si is signed (a la construction il ne l'est pas).
+			-> un grade constant necessitant une signature.
+			-> un grade constant necessitant une execution.
+		
+->Les grades des Form suivent les meme regles que pour les Bureaucrat.
+	-> si exceptions trop grand ou petit -> throw Form::GradeTooHighException ou Form::GradeTooLowException.
+->Fonction membre beSigned -> Sert à faire signer le formulaire par un bureaucrate (Bureaucrat), seulement s’il a le bon grade.
+_______________________
+
+Declaration anticipee (forward declaration) = a la place de mettre #include "Bureaucrat.hpp" (car ca peut creer
+des problemes de dependances circulaires cad si Bureaucrat inclut aussi Form). En gros je dit a mon compilateur 
+qu'il existe une classe Bureaucrat quelque part, qu'il n'a pas besoin des details ici mais comme ca il sait qu'elle existe.

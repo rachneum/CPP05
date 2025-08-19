@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : _name("Default"), _grade(150)//J'ai mis une valeur pour mon grade mais j'aurais pu mettre n'importe quel autre grade dans ma range.
+Bureaucrat::Bureaucrat() : _name("Default"), _grade(150)
 {
     std::cout << "Bureaucrat default constructor called." << std::endl;
 }
@@ -14,12 +14,12 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name), _grade
         throw GradeTooHighException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade)//other._name désigne la valeur de _name dans l’objet other que je copie.
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade)
 {
     std::cout << "Bureaucrat copy constructor called." << std::endl;
 }
 
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)//L'opérateur d'assignation copie uniquement les membres modifiables (_name est const, donc ne peut être modifié qu'à la construction).
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
     if (this != &other)
         _grade = other._grade;
@@ -42,14 +42,14 @@ int Bureaucrat::getGrade() const
     return (_grade);
 }
 
-void    Bureaucrat::incrementGrade()//!1 = high!
+void    Bureaucrat::incrementGrade()
 {
     if ((_grade - 1) < 1)
         throw GradeTooHighException();
     _grade--;
 }
 
-void    Bureaucrat::decrementGrade()//!150 = low!
+void    Bureaucrat::decrementGrade()
 {
     if ((_grade + 1) > 150)
         throw GradeTooLowException();
