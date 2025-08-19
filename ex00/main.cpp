@@ -74,5 +74,9 @@ int main()
         std::cout << "Unexpected exception: " << e.what() << std::endl;
     }
 
+    std::cout << "---- Test operateur de surcharge ----" << std::endl;
+    Bureaucrat a("Rachel", 1);
+    std::cout << a << std::endl;
+    
     return (0);
 }
