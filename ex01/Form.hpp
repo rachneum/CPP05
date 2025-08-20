@@ -6,7 +6,7 @@
 # include <exception>
 
 class	Bureaucrat;//Declaration anticipee, car ma methode (fonction membre) prend un parametre Bureaucrat.
-
+//Elle me permet de dire qu'une classe Bureaucrat existe.
 class	Form
 {
 	private:

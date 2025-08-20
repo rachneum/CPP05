@@ -1,4 +1,5 @@
 #include "Form.hpp"
+#include "Bureaucrat.hpp"//Necessaire pour ma fonction beSigned().
 
 Form::Form() : _name("Default"), _isSigned(false), _gradeToSign(150), _gradeToExecute(150)
 {

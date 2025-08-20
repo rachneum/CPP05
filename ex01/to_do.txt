@@ -1,6 +1,7 @@
 Quoi faire?
 
 ->class Form
+attributs:
 			-> un _name constant
 			-> un bool indiquant si is signed (a la construction il ne l'est pas).
 			-> un grade constant necessitant une signature.
@@ -8,7 +9,15 @@ Quoi faire?
 		
 ->Les grades des Form suivent les meme regles que pour les Bureaucrat.
 	-> si exceptions trop grand ou petit -> throw Form::GradeTooHighException ou Form::GradeTooLowException.
+->getters pour mes attributs.
+->Fonction surcharge d'operateur.
 ->Fonction membre beSigned -> Sert à faire signer le formulaire par un bureaucrate (Bureaucrat), seulement s’il a le bon grade.
+->Modifier le signForm() qui est une fonction membre de ma classe Bureaucrat. 
+			-> Cette fonction doit appeler Form::beSigned() afin d'essayer de le signer.
+			-> Si correctement signe print <bureaucrat> signed <form>.
+		       sinon print <bureaucrat> couldn’t sign <form> because <reason>.
+																			
+
 _______________________
 
 Declaration anticipee (forward declaration) = a la place de mettre #include "Bureaucrat.hpp" (car ca peut creer
